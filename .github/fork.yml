@@ -1,0 +1,22 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '8 0 * * *' # every day 0:00 UTC +8
+#   - cron: '*/30 * * * *' # every 30 minutes
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      #- uses: tgymnich/fork-sync@v1.8
+      - uses: tgymnich/fork-sync@latesthugo-theme-stack
+        with:
+          #    token: ${{ secrets.GitHub_TOKEN }}
+          owner: CaiJimmy
+          repo: hugo-theme-stack
+          base: master
+          head: blog
